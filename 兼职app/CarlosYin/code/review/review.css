@@ -1,0 +1,44 @@
+body {
+	background-color: #FFFFFF;
+}
+.mui-content{
+	background-color: #FFFFFF;
+}
+
+.send,.send:hover,.send:focus{
+	font-size: 15px;
+	color: #FFFFFF;
+	margin-right: -10px;
+    margin-left: -10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    position: relative;
+    z-index: 20;
+    padding-top: 13px;
+    padding-bottom: 7px;
+    display: inline-block;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+input[type=color], input[type=date], input[type=datetime-local], input[type=datetime], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week], select, textarea{
+	border: none;
+	border-radius: 0;
+}
+
+input::-webkit-input-placeholder{
+        text-align: center;
+        color: #333;
+}
+.icon-dianzan{
+	margin: 0 5px;
+}
+
+.dz-active{
+	color: #e927ed;
+}
+
+#content{
+	margin-bottom: 0;
+}

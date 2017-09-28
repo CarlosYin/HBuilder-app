@@ -1,0 +1,91 @@
+body {
+	background-color: #FFFFFF;
+}
+
+.mui-content {
+	background-color: #FFFFFF;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.mui-input-row {
+	margin-top: 15px;
+	border-bottom: 1px solid #efeff4;
+	padding-left: 5px;
+	padding-bottom: 5px;
+}
+
+p {
+	font-size: 15px;
+	color: #000;
+	margin-bottom: 5px;
+}
+
+.mui-input-row label{
+	font-family: pf-regular;
+	text-align: right;
+	width: 20%;
+	padding: 11px 0;
+}
+.mui-input-row label~input, .mui-input-row label~select, .mui-input-row label~textarea{
+	font-family: pf-regular;
+	width: 75%;
+}
+
+.mui-input-row span{
+	float: right;
+	font-family: pf-regular;
+	width: 35%;
+	padding: 11px 0;
+	line-height: 1.1;
+}
+.mui-input-row select{
+	font-size: 15px;
+}
+
+
+.getcode,.getcode:hover,.getcode:focus{
+	color: #8A9CFF;
+}
+
+.prompt {
+	color: #ff7878;
+	margin-bottom: 60px;
+}
+
+
+.row-input{
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+
+
+input[type=color], input[type=date], input[type=datetime-local], input[type=datetime], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week], select, textarea{
+	border: none;
+	border-radius: 0;
+	font-size: 14px;
+}
+
+#content{
+	margin-bottom: 0;
+}
+
+.btn-post {
+	border-bottom: none;
+	position: fixed;
+	left: 0;
+	bottom: 15px;
+}
+
+#post {
+	margin: 0 40px;
+	border: none;
+	color: #FFFFFF;
+	font-size: 15px;
+	border-radius: 8px;
+	background-color: #8A9CFF;
+	padding: 10px 0;
+}
+

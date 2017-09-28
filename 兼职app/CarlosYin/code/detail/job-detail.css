@@ -1,0 +1,41 @@
+body {
+	background-color: #FFFFFF;
+}
+
+.mui-bar-nav~.mui-content {
+	padding-top: 70px;
+}
+
+.mui-content>.mui-card:first-child {
+	margin-top: 0;
+}
+
+.job-detal{
+	background-color: #FFFFFF;
+	padding-left: 20px;
+	padding-right: 10px;
+}
+
+.detail-title{
+	padding: 7px 0;
+	border-bottom: 1px solid #efeff4;
+}
+.duty{
+	margin: 10px 0;
+}
+
+.mui-icon-right-nav:before{
+	font-size: 21px;
+	content: '\e470';
+}
+
+
+.mui-bar-tab{
+	border-top: 0px solid red;
+}
+
+.btn-pluralism{
+	width: 38.5%;
+	background-color: #8a9cff;
+	color: #FFFFFF;
+}

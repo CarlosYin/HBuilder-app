@@ -1,0 +1,16 @@
+body{
+	background-color: #FFFFFF;
+}
+.mui-content {
+	background-color: #FFFFFF;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.about-title{
+	margin-top: 30px;
+	margin-bottom: 0;
+	color: #8a9cff;
+}
+p{
+	color: #000000;
+}

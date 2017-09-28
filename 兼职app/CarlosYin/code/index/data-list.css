@@ -1,0 +1,41 @@
+.mui-card-header.mui-card-media .mui-media-body{
+	margin-left: 0px;
+}
+
+.mr-l-10{
+	margin-left: 10px;
+}
+
+.time{
+	float: right;
+}
+.link-l{
+	color: #8f7569;
+	margin-right: 5px;
+}
+
+.link-r{
+	color: #f79504;
+}
+.money{
+	float: right;
+}
+
+
+.company-img{
+	float: left;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	margin-left: 10px;
+	margin-right: 5px;
+	margin-top: 10px;
+}
+
+.mr-t-10{
+	margin-top: 12px;
+}
+
+.mui-card-header.mui-card-media{
+	padding:  12px 10px;
+}
