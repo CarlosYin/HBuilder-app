@@ -115,7 +115,7 @@
 		if(adjust || !w.plus || !domready) {
 			return;
 		} // iOS平台使用滚动的div
-		plus.navigator.setFullscreen(false);
+//		plus.navigator.setFullscreen(false);
 		if('iOS' == plus.os.name) {
 			var t = document.getElementById("dcontent");
 			t && (t.className = "sdcontent");

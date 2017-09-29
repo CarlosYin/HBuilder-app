@@ -1,0 +1,70 @@
+body,.mui-content,.mui-bar{
+	background-color: #FFFFFF;
+}
+.mui-bar-nav{
+	box-shadow: none;
+}
+
+.mui-action-back, .mui-action-back:hover, .mui-action-back:focus{
+	color: #000;
+}
+.mui-icon-closeempty:before,.mui-icon-more:before{
+	font-size: 30px;
+	
+}
+.title{
+	font-size: 30px;
+	line-height: 28px;
+	margin-bottom: 55px;
+	padding-left: 15px;
+}
+.mui-table-view:before,.mui-table-view:after{
+	background-color: #FFFFFF;
+}
+.area{
+	margin-left: 15px;
+}
+.mui-table-view-cell{
+	padding:  11px 0;
+}
+
+.mui-input-row label{
+	padding-left: 0;
+	font-family: pf-regular;
+	width: 30%;
+}
+.mui-input-row label~input, .mui-input-row label~select, .mui-input-row label~textarea{
+	padding-right: 0;
+	width: 70%;
+}
+
+.row-input{
+	border-bottom: 1px solid #c9c9c9;
+	margin: 0 15px;
+}
+
+.changeLogin-row{
+	margin-top: 32px;
+	font-size: 14px;
+	color: #576b95;
+	margin-left: 15px;
+}
+
+.mui-table-view-cell>a:not(.mui-btn).mui-active{
+	background-color: #FFFFFF;
+}
+
+.btn-post{
+	border-radius: 4px;
+	height: 48px;
+	color: #FFFFFF;
+	font-size: 17px;
+	margin: 0 15px;
+	margin-top: 60px;
+	background-color: #1aad19;
+}
+
+
+.btn-post-disabled{
+	opacity: 0.3;
+}

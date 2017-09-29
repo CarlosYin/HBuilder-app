@@ -1,5 +1,13 @@
-
 (function(w) {
+
+	// 设置系统状态栏为深色前景色（黑色文字）
+	w.darkStyle = function() {
+		plus.navigator.setStatusBarStyle('dark');
+	}
+	// 设置系统状态栏为浅色前景色（白色文字）
+	w.lightStyle = function() {
+		plus.navigator.setStatusBarStyle('light');
+	}
 
 	/**
 	 * 请求服务器
@@ -71,6 +79,15 @@
 			var i = e.index;
 			if(callback) callback(i);
 		}, title, '确定');
+	}
+
+	w._wait = null;
+	w.OpenWait = function(title) {
+		var _wait = plus.nativeUI.showWaiting(title);
+		return _wait;
+	}
+	w.CloseWait = function() {
+		_wait.close();
 	}
 
 })(window);

@@ -13,7 +13,13 @@
 
 	var chooseFileName = null;
 
+	w.tellHomepage = function() {
+		var wv_home = plus.webview.getWebviewById('HBuilder');
+		mui.fire(wv_home, 'closeSetLan');
+	}
+
 	function init() {
+		lightStyle();
 
 		mui.init({
 			gestureConfig: {
@@ -36,18 +42,23 @@
 			//如果没有改变语言
 			if(!isChanage) return;
 
+			var _wait = OpenWait('正在设置语言...');
 			var wv_all = plus.webview.all();
-
 			for(var i = 0; i < wv_all.length; i++) {
+				console.log(wv_all[i].id);
 				wv_all[i].evalJS("getgloInfo('" + GLOBALIZOTION + "');");
 			}
-
 			plus.storage.setItem('GLOBALIZOTION', GLOBALIZOTION);
 
-			var wv_curr = plus.webview.currentWebview();
-			wv_curr.close();
+			setTimeout(function(e) {
+				_wait.close();
+ 				tellHomepage();
+				var wv_curr = plus.webview.currentWebview();
+				wv_curr.close();
+			}, 1000);
 		})
 
+		//list页面点击列表项的回调操作。
 		document.addEventListener('changeSucStatus', function(e) {
 			var _type = parseInt(e.detail.type);
 			if(_type == -1) {

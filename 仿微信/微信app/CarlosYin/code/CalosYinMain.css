@@ -12,6 +12,10 @@
 	font-family: pf-regular;
 	font-size: 15px;
 }
+input, select, textarea{
+	font-family: pf-regular;
+	font-size: 15px;
+}
 
 html,
 body {
