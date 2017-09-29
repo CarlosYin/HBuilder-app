@@ -60,6 +60,7 @@
 	E_btnpost.addEventListener('tap', function(e) {
 		if(('' + E_btnpost.classList).indexOf('btn-post-disabled') >= 0) return;
 		console.log('执行'+LoginType);
+		
 	})
 
 	document.body.querySelector('.changeArea').addEventListener('tap', function(e) {
