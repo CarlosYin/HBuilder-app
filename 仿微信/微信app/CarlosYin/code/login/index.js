@@ -57,4 +57,16 @@
 		console.log('执行');
 	})
 
+	document.body.querySelector('.changeArea').addEventListener('tap', function(e) {
+		clicked('/CarlosYin/code/login/area.html', false, false, null, 'slide-in-bottom');
+	})
+	
+	document.addEventListener('changeArea',function(e){
+		console.log('changeArea'+JSON.stringify(e.detail));
+		
+		document.body.querySelector('.area').innerHTML = e.detail.area;
+		document.body.querySelector('.lbl_phone').innerHTML = e.detail.phone;
+		
+	})
+
 })(window);

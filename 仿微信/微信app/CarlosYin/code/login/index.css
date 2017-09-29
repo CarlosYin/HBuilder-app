@@ -27,6 +27,9 @@ body,.mui-content,.mui-bar{
 .mui-table-view-cell{
 	padding:  11px 0;
 }
+.mui-table-view-cell>a:not(.mui-btn){
+	margin: -11px 0;
+}
 
 .mui-input-row label{
 	padding-left: 0;
@@ -36,6 +39,9 @@ body,.mui-content,.mui-bar{
 .mui-input-row label~input, .mui-input-row label~select, .mui-input-row label~textarea{
 	padding-right: 0;
 	width: 70%;
+}
+.mui-navigate-right:after, .mui-push-right:after{
+	right: 0;
 }
 
 .row-input{

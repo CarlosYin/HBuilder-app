@@ -1,0 +1,53 @@
+html,
+body {
+	height: 100%;
+	overflow: hidden;
+}
+
+.mui-action-back,
+.mui-action-back:hover,
+.mui-action-back:focus {
+	color: #FFFFFF;
+}
+
+input[type=color], input[type=date], input[type=datetime-local], input[type=datetime], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week], select, textarea{
+	border: none;
+}
+.mui-indexed-list-search input{
+	background-color: #FFFFFF;
+}
+.mui-input-row.mui-search .mui-icon-clear{
+	top: 35px;
+}
+
+.mui-indexed-list-bar,
+.mui-indexed-list-bar:focus,
+.mui-indexed-list-bar:hover {
+	background-color: #FFFFFF;
+	width: 15px;
+	height: 60%;
+	top: 20%;
+}
+
+.mui-indexed-list-bar a {
+	font-size: 9px;
+	color: #000000;
+}
+
+.mui-indexed-list {
+	background-color: #FFFFFF;
+}
+
+.mui-ios .mui-indexed-list-inner {
+	width: 100%;
+	margin-left: 0 10px;
+}
+
+.mui-ios .mui-indexed-list-group, .mui-ios .mui-indexed-list-item, .mui-ios .mui-indexed-list-empty-alert{
+	padding-right: 30px;
+}
+
+.phone{
+	float: right;
+	color: #6B6B6B;
+}

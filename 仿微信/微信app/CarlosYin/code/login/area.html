@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="../../Lib/mui/css/mui.min.css" />
+		<link rel="stylesheet" href="../CalosYinMain.css" />
+		<link rel="stylesheet" href="mui.indexedlist.css" />
+
+		<link rel="stylesheet" href="area.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav bc-base">
+			<a class="mui-action-back mui-pull-left mui-pull-text">返回</a>
+			<h1 class="mui-title">选择国家和地区</h1>
+		</header>
+		<div class="mui-content">
+			<div id='list' class="mui-indexed-list">
+				<div class="mui-indexed-list-search mui-input-row mui-search">
+					<input id="search" type="text" class="mui-indexed-list-search-input" placeholder="搜索国家">
+				</div>
+				<div class="mui-indexed-list-bar"></div>
+				<div class="mui-indexed-list-alert"></div>
+				<div class="mui-indexed-list-inner">
+					<div class="mui-indexed-list-empty-alert">没有数据</div>
+					<ul id="elist" class="mui-table-view"></ul>
+				</div>
+			</div>
+		</div>
+	</body>
+
+	<script type="text/javascript" src="../../Lib/mui/js/mui.min.js"></script>
+	<script type="text/javascript" src="../../Lib/mui.indexedlist.js" ></script>
+	<script type="text/javascript" src="../../Lib/jstween.min.js" ></script>
+	<script type="text/javascript" src="../../tools/muitools.js"></script>
+	<script type="text/javascript" src="../../tools/base.js"></script>
+
+	<script type="text/javascript" src="area.js"></script>
+
+</html>
