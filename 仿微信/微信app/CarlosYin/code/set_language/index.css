@@ -1,0 +1,6 @@
+.btn-success,.btn-success:focus,.btn-success:hover{
+	color: #20d81f;
+}
+.btn-success-disabled{
+	opacity: 0.3;
+}

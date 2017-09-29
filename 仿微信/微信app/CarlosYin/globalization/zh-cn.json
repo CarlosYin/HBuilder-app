@@ -1,0 +1,22 @@
+{
+	"index":{
+		"language":"简体中文",
+		"btnLogin":"登录",
+		"btnRegist":"注册"
+	},
+	
+	"setLanguage":{
+		"header":{
+			"back":"取消",
+			"h1":"设置语言",
+			"btnSuccess":"完成"
+		}
+	},
+	
+	
+	
+	
+	
+	
+	"title": "设置语言"
+}

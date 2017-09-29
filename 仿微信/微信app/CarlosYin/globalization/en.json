@@ -1,0 +1,22 @@
+{
+	"index":{
+		"language":"English",
+		"btnLogin":"Login",
+		"btnRegist":"Regist"
+	},
+	
+	"setLanguage":{
+		"header":{
+			"back":"cancel",
+			"h1":"Set Language",
+			"btnSuccess":"complete"
+		}
+	},
+	
+	
+	
+	
+	
+	
+	"title": "设置语言"
+}
