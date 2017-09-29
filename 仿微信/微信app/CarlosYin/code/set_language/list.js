@@ -1,32 +1,48 @@
 (function(w) {
-	mui.init({
-		pullRefresh: {
-			container: '#pullrefresh',
-			down: {
-				contentdown: "", //可选，在下拉可刷新状态时，下拉刷新控件上显示的标题内容
-				contentover: "", //可选，在释放可刷新状态时，下拉刷新控件上显示的标题内容
-				contentrefresh: "",
-				callback: pulldownRefresh
-			},
-			up: {
-				contentrefresh: "", //可选，正在加载状态时，上拉加载控件上显示的标题内容
-				contentnomore: '',
-				contentover: "",
-				callback: pullupRefresh
+
+	mui('.mui-scroll-wrapper').scroll({
+		deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+	});
+
+	w.GlobalizotionReload = function() {
+
+	}
+	var chooseLanguageFileName = plus.storage.getItem('GLOBALIZOTION') || GLOBALIZOTION;
+
+	var _lists = document.body.querySelectorAll('.mui-table-view-cell');
+
+	[].forEach.call(_lists, function(item) {
+		if(item.getAttribute('filename') == chooseLanguageFileName) {
+			item.querySelector('a').classList.add('mui-navigate-right');
+		}
+	})
+
+	document.body.querySelector('.mui-table-view').addEventListener('tap', function(e) {
+		var ev = ev || window.event;
+		var target = ev.target || ev.srcElement;
+
+		while(target.classList !== 'mui-table-view-cell') {
+			if(target.classList == 'mui-table-view-cell') {
+				document.body.querySelector('.mui-navigate-right').classList.remove('mui-navigate-right');
+				target.querySelector('a').classList.add('mui-navigate-right');
+				var _filename = target.getAttribute('filename');
+				var setpage = plus.webview.getWebviewById('/CarlosYin/code/set_language/index.html');
+				var param = {
+					type: -1
+				};
+				if(_filename == null) {
+					NAlert('提示', '暂无此语言的配置文件');
+				}
+				if(_filename && (chooseLanguageFileName != _filename)) {
+					param.filename = _filename;
+					GLOBALIZOTION = _filename;
+					param.type = 1;
+				}
+				mui.fire(setpage, 'changeSucStatus', param);
+				break;
 			}
+			target = target.parentNode;
 		}
 	});
-	/**
-	 * 下拉刷新具体业务实现
-	 */
-	function pulldownRefresh() {
-		mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
-	}
-	var count = 0;
-	/**
-	 * 上拉加载具体业务实现
-	 */
-	function pullupRefresh() {
-		mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
-	}
+
 })(window);

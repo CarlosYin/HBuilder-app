@@ -1,3 +1,4 @@
+
 (function(w) {
 
 	/**
@@ -64,14 +65,12 @@
 			if(callback) callback(i);
 		}, title, btns);
 	}
-	
+
 	w.NAlert = function(title, content, callback) {
 		plus.nativeUI.alert(content, function(e) {
 			var i = e.index;
 			if(callback) callback(i);
 		}, title, '确定');
 	}
-	
-	
 
 })(window);

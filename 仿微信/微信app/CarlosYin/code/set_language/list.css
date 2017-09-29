@@ -1,3 +1,13 @@
-.mui-pull{
-	opacity: 0;
+.mui-navigate-right:after,
+.mui-push-right:after {
+	content: '\e472';
+	right: 15px;
+	font-size: 22px;
+	color: #007aff;
+}
+
+.mui-navigate-right:after,
+.mui-push-left:after,
+.mui-push-right:after {
+	-webkit-font-smoothing: none;
 }
