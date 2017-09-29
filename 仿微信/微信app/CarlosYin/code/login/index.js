@@ -29,10 +29,15 @@
 			LoginType = 'phone';
 			_changeLoginTxt = '用微信号/QQ号/邮箱登录';
 			_btnpostTxt = '下一步';
+			if(loginPhone == '') E_btnpost.classList.add('btn-post-disabled');
+			if(loginPhone != '') E_btnpost.classList.remove('btn-post-disabled');
 		} else {
 			LoginType = 'qq';
 			_changeLoginTxt = '用手机号登录';
 			_btnpostTxt = '登录';
+			console.log('abc')
+			if(loginAcc == '' || loginPwd == '') E_btnpost.classList.add('btn-post-disabled');
+			if(loginAcc != '' && loginPwd != '') E_btnpost.classList.remove('btn-post-disabled');
 		}
 		E_changeLogin.innerHTML = _changeLoginTxt;
 		E_btnpost.innerHTML = _btnpostTxt;
@@ -54,19 +59,51 @@
 
 	E_btnpost.addEventListener('tap', function(e) {
 		if(('' + E_btnpost.classList).indexOf('btn-post-disabled') >= 0) return;
-		console.log('执行');
+		console.log('执行'+LoginType);
 	})
 
 	document.body.querySelector('.changeArea').addEventListener('tap', function(e) {
 		clicked('/CarlosYin/code/login/area.html', false, false, null, 'slide-in-bottom');
 	})
-	
-	document.addEventListener('changeArea',function(e){
-		console.log('changeArea'+JSON.stringify(e.detail));
-		
+
+	document.addEventListener('changeArea', function(e) {
+		console.log('changeArea' + JSON.stringify(e.detail));
+
 		document.body.querySelector('.area').innerHTML = e.detail.area;
 		document.body.querySelector('.lbl_phone').innerHTML = e.detail.phone;
-		
+
 	})
+
+	var loginPhone = '';
+	document.body.querySelector('#phone').addEventListener('input', function(e) {
+		loginPhone = this.value;
+		if(loginPhone != '') {
+			E_btnpost.classList.remove('btn-post-disabled');
+		} else
+			E_btnpost.classList.add('btn-post-disabled');
+	})
+
+	var loginAcc = '';
+	var loginPwd = '';
+	document.body.querySelector('#acc').addEventListener('input', function(e) {
+		loginAcc = this.value;
+		console.log(loginAcc)
+		if(loginAcc != '' && loginPwd != '') {
+			E_btnpost.classList.remove('btn-post-disabled');
+		} else
+			E_btnpost.classList.add('btn-post-disabled');
+	})
+
+	document.body.querySelector('#pwd').addEventListener('input', function(e) {
+		loginPwd = this.value;
+		console.log(loginAcc + '-' + loginPwd)
+		if(loginAcc != '' && loginPwd != '') {
+			E_btnpost.classList.remove('btn-post-disabled');
+		} else
+			E_btnpost.classList.add('btn-post-disabled');
+	})
+	
+	
+	
 
 })(window);

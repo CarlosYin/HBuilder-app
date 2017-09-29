@@ -76,6 +76,8 @@
 	var AniDec = 0.3;
 
 	document.body.querySelector('#search').addEventListener('focus', function(e) {
+		darkStyle();
+		document.body.querySelector('.cover').classList.remove('mui-hidden');
 		JT.to('.mui-content', AniDec, {
 			paddingTop: "0",
 			onEnd: AniEnd
@@ -93,6 +95,15 @@
 
 		JT.to('.mui-bar', AniDec, {
 			opacity: 0,
+			onEnd: AniEnd
+		});
+
+		JT.fromTo('.cover', AniDec, {
+			opacity: 0,
+			top: '40px',
+		}, {
+			opacity: 1,
+			top: '65px',
 			onEnd: AniEnd
 		});
 
@@ -122,8 +133,19 @@
 			onEnd: AniEnd
 		});
 
+		JT.fromTo('.cover', AniDec, {
+			opacity: 1,
+			top: '65px',
+		}, {
+			opacity: 0,
+			top: '40px',
+			onEnd: AniEnd
+		});
+
 		function AniEnd() {
 			document.body.querySelector('.mui-bar-nav').classList.remove('mui-hidden');
+			document.body.querySelector('.cover').classList.add('mui-hidden');
+			lightStyle();
 		}
 	})
 
@@ -138,13 +160,12 @@
 			if(_idx >= 0) {
 
 				var _area = {
-					area:target.querySelector('.area').innerHTML,
-					phone:target.querySelector('.phone').innerHTML,
-					datavalue:target.getAttribute('data-value'),
-					datatags:target.getAttribute('data-tags')
+					area: target.querySelector('.area').innerHTML,
+					phone: target.querySelector('.phone').innerHTML,
+					datavalue: target.getAttribute('data-value'),
+					datatags: target.getAttribute('data-tags')
 				};
-				
-				
+
 				var wv_loginindex = plus.webview.getWebviewById('/CarlosYin/code/login/index.html');
 				mui.fire(wv_loginindex, 'changeArea', _area);
 				var wv_curr = plus.webview.currentWebview();
