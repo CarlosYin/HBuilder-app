@@ -35,7 +35,6 @@
 			LoginType = 'qq';
 			_changeLoginTxt = '用手机号登录';
 			_btnpostTxt = '登录';
-			console.log('abc')
 			if(loginAcc == '' || loginPwd == '') E_btnpost.classList.add('btn-post-disabled');
 			if(loginAcc != '' && loginPwd != '') E_btnpost.classList.remove('btn-post-disabled');
 		}
@@ -57,10 +56,29 @@
 
 	})
 
+	var _wait;
 	E_btnpost.addEventListener('tap', function(e) {
 		if(('' + E_btnpost.classList).indexOf('btn-post-disabled') >= 0) return;
-		console.log('执行'+LoginType);
-		
+
+		_wait = OpenWait('请稍候...');
+		setTimeout(function(e) {
+			_wait.close();
+			clicked('/CarlosYin/code/home/index.html', false, false, null, 'none');
+		}, 1500);
+
+	})
+
+	document.body.querySelector('.more').addEventListener('tap', function(e) {
+		bts = [{
+			title: "找回密码"
+		}, {
+			title: "前往微信安全中心"
+		}];
+		ActionSheet('', '取消', bts, cb);
+
+		function cb(idx) {
+			console.log(idx);
+		}
 	})
 
 	document.body.querySelector('.changeArea').addEventListener('tap', function(e) {
@@ -68,7 +86,6 @@
 	})
 
 	document.addEventListener('changeArea', function(e) {
-		console.log('changeArea' + JSON.stringify(e.detail));
 
 		document.body.querySelector('.area').innerHTML = e.detail.area;
 		document.body.querySelector('.lbl_phone').innerHTML = e.detail.phone;
@@ -88,7 +105,6 @@
 	var loginPwd = '';
 	document.body.querySelector('#acc').addEventListener('input', function(e) {
 		loginAcc = this.value;
-		console.log(loginAcc)
 		if(loginAcc != '' && loginPwd != '') {
 			E_btnpost.classList.remove('btn-post-disabled');
 		} else
@@ -97,14 +113,14 @@
 
 	document.body.querySelector('#pwd').addEventListener('input', function(e) {
 		loginPwd = this.value;
-		console.log(loginAcc + '-' + loginPwd)
 		if(loginAcc != '' && loginPwd != '') {
 			E_btnpost.classList.remove('btn-post-disabled');
 		} else
 			E_btnpost.classList.add('btn-post-disabled');
 	})
-	
-	
-	
+
+	document.addEventListener('cancelArea', function(e) {
+		darkStyle();
+	})
 
 })(window);

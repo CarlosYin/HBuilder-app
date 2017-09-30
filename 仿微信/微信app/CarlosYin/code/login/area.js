@@ -10,6 +10,7 @@
 		//		document.body.querySelector('.btn-regist').innerHTML = gloInfo.index.btnRegist;
 	}
 
+	var wv_loginindex;
 	function init() {
 		lightStyle();
 		GetArea();
@@ -19,6 +20,8 @@
 		list.style.height = (document.body.offsetHeight - header.offsetHeight) + 'px';
 		//create
 		window.indexedList = new mui.IndexedList(list);
+		wv_loginindex = plus.webview.getWebviewById('/CarlosYin/code/login/index.html');
+		if(!wv_loginindex) wv_loginindex = plus.webview.getWebviewById('/CarlosYin/code/regist/index.html');
 	}
 
 	//读取国家JSon文件
@@ -166,7 +169,6 @@
 					datatags: target.getAttribute('data-tags')
 				};
 
-				var wv_loginindex = plus.webview.getWebviewById('/CarlosYin/code/login/index.html');
 				mui.fire(wv_loginindex, 'changeArea', _area);
 				var wv_curr = plus.webview.currentWebview();
 				wv_curr.close();
@@ -176,4 +178,7 @@
 		}
 	});
 
+	w.tellHomepage = function() {
+		mui.fire(wv_loginindex, 'cancelArea');
+	}
 })(window);

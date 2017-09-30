@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="../../Lib/mui/css/mui.min.css" />
+		<link rel="stylesheet" href="../CalosYinMain.css" />
+		<link rel="stylesheet" href="index.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-pull-left mui-pull-text">取消</a>
+		</header>
+		<div id="main" class="mui-content">
+			<div class="ub ub-ver ub-fh phoneLogin">
+				<div class="ub ub-pc title">请输入你的手机号</div>
+				<ul class="mui-table-view mui-table-view-chevron row-input changeArea">
+					<li class="mui-table-view-cell" filename="zh-cn.json">
+						<a href="#" class="mui-navigate-right">国家/地区<span class="area">中国</span></a>
+					</li>
+				</ul>
+				<div class="mui-input-row row-input">
+					<label class="lbl_phone">+86</label>
+					<input id="phone" type="tel" class="mui-input-clear" placeholder="请填写手机号码">
+				</div>
+			</div>
+
+			<div class="ub ub-ac ub-pc btn-post btn-post-disabled">注册</div>
+		</div>
+
+		<div class="protocol mui-hidden">
+			<header class="mui-bar mui-bar-nav">
+				<a class="mui-pull-left mui-pull-text mui-pull-text2">关闭</a>
+				<h1 id="pro_title" class="mui-title"></h1>
+			</header>
+			<p class="line"></p>
+			<div class="mui-content">
+				<div id="protocolWrapper" class="mui-scroll-wrapper">
+					<div id="main_protocol" class="mui-scroll"></div>
+				</div>
+			</div>
+			<footer>
+				<span class="no-aggre">不同意</span>
+				<span class="aggre">同意</span>
+			</footer>
+		</div>
+	</body>
+
+	<script type="text/javascript" src="../../Lib/mui/js/mui.min.js"></script>
+	<script type="text/javascript" src="../../Lib/jstween.min.js"></script>
+	<script type="text/javascript" src="../../tools/muitools.js"></script>
+	<script type="text/javascript" src="../../globalization/globalizotion.js"></script>
+	<script type="text/javascript" src="../../tools/base.js"></script>
+
+	<script type="text/javascript" src="index.js"></script>
+
+</html>

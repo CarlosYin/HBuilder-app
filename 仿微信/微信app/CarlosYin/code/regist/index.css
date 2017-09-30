@@ -1,0 +1,161 @@
+body,
+.mui-content,
+.mui-bar {
+	background-color: #FFFFFF;
+}
+
+.mui-bar-nav {
+	box-shadow: none;
+}
+
+.mui-action-back,
+.mui-action-back:hover,
+.mui-action-back:focus {
+	color: #000;
+}
+
+.mui-icon-closeempty:before,
+.mui-icon-more:before {
+	font-size: 30px;
+}
+
+.title {
+	font-size: 20px;
+	line-height: 24px;
+	margin-bottom: 50px;
+	padding-left: 15px;
+}
+
+.mui-table-view:before,
+.mui-table-view:after {
+	background-color: #FFFFFF;
+}
+
+.area {
+	margin-left: 15px;
+}
+
+.mui-table-view-cell {
+	padding: 11px 0;
+}
+
+.mui-table-view-cell>a:not(.mui-btn) {
+	margin: -11px 0;
+}
+
+.mui-input-row label {
+	padding-left: 0;
+	font-family: pf-regular;
+	width: 30%;
+}
+
+.mui-input-row label~input,
+.mui-input-row label~select,
+.mui-input-row label~textarea {
+	padding-right: 0;
+	width: 70%;
+}
+
+.mui-navigate-right:after,
+.mui-push-right:after {
+	right: 0;
+}
+
+.row-input {
+	border-bottom: 1px solid #c9c9c9;
+	margin: 0 15px;
+}
+
+.mui-table-view-cell>a:not(.mui-btn).mui-active {
+	background-color: #FFFFFF;
+}
+
+.btn-post {
+	border-radius: 4px;
+	height: 48px;
+	color: #FFFFFF;
+	font-size: 17px;
+	margin: 0 15px;
+	margin-top: 30px;
+	background-color: #1aad19;
+}
+
+.btn-post-disabled {
+	opacity: 0.3;
+}
+
+.mui-pull-text {
+	color: #1aad19;
+}
+
+.protocol {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.7);
+	z-index: 999;
+}
+
+.filter-blur {
+	-webkit-filter: blur(10px);
+}
+
+.protocol .mui-title,
+.mui-pull-text2,
+.mui-pull-text2:hover,
+.mui-pull-text2:focus,
+.protocol .mui-content p {
+	color: #000000;
+}
+
+.protocol .mui-bar {
+	position: absolute;
+}
+
+.protocol .mui-content {
+	background-color: rgba(0, 0, 0, 0);
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.line{
+	width: 0%;
+	background-color: #1aad19;
+	height: 1px;
+	margin: 0;
+	padding: 0;
+	margin-top: 65px;
+}
+
+#protocolWrapper{
+	top: 65px;
+}
+
+#main_protocol{
+	padding: 0 10px;
+	
+}
+
+
+.protocol footer{
+	position: absolute;
+	bottom: 0;
+	height: 44px;
+	width: 100%;
+	background-color: #FFFFFF;
+	border-top: 1px solid #f3f3f3;
+	z-index: 3;
+}
+
+.no-aggre{
+	margin-left: 15px;
+	line-height: 44px;
+}
+.aggre{
+	margin-right: 15px;
+	line-height: 44px;
+	color: #1aa91d;
+	float: right;
+}

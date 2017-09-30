@@ -67,7 +67,7 @@
 	 */
 
 	w.NConfirm = function(title, content, btns, callback) {
-		if(btns == null) btns == ['确定'];
+		if(btns == null) btns = ['确定'];
 		plus.nativeUI.confirm(content, function(e) {
 			var i = e.index;
 			if(callback) callback(i);
@@ -88,6 +88,22 @@
 	}
 	w.CloseWait = function() {
 		_wait.close();
+	}
+
+	w.ActionSheet = function(title, cancel, btns, callback) {
+		//		 bts=[{title:"警告",style:"destructive"},{title:"按钮1"},{title:"按钮2"},{title:"按钮3"}];
+		var _set = {
+			cancel: cancel,
+			buttons: btns
+		};
+		if(title != '') _set.title = title;
+
+		plus.nativeUI.actionSheet(_set,
+			function(e) {
+
+				if(callback && e.index != 0) callback(e.index);
+			}
+		);
 	}
 
 })(window);

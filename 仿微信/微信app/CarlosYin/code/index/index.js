@@ -29,9 +29,13 @@
 			clicked('/CarlosYin/code/login/index.html', false, false, null, 'slide-in-bottom');
 		})
 		
+
+		document.querySelector('.btn-regist').addEventListener('tap', function(e) {
+			clicked('/CarlosYin/code/regist/index.html', false, false, null, 'slide-in-bottom');
+		})
+		
 		//list页面点击列表项的回调操作。
 		document.addEventListener('closeSetLan', function(e) {
-			console.log('closeSetLan');
 			darkStyle();
 		})
 	}
