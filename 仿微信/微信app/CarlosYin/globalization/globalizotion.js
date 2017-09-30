@@ -26,5 +26,4 @@
 	document.addEventListener('plusready', function() {
 		getgloInfo();
 	});
-
 })(window);
