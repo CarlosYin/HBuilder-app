@@ -1,8 +1,24 @@
 (function(w) {
 	document.addEventListener('plusready', function() {
 		init();
+		mui.init({
+			gestureConfig: {
+				tap: true, //默认为true
+				doubletap: true //默认为false
+			}
+		});
 		onload();
 	});
+
+
+	document.body.querySelector('.home-list').addEventListener('doubletap', function() {
+		var wv_index_list = plus.webview.getWebviewById('index_list.html');
+		var _data = {
+			num: badge_index
+		};
+		mui.fire(wv_index_list, 'HomeDoubleTap', _data);
+
+	})
 
 	var badge_index = 0;
 	var badge_faxian = 0;
@@ -84,7 +100,6 @@
 			reloadIcon(4);
 			showBtn(1, _title);
 		} else if(icon.contains('icon-tongxunlu')) {
-			console.log('点击第二个')
 			icon.remove('icon-tongxunlu');
 			icon.add('icon-icon161607');
 			reloadIcon(1);
