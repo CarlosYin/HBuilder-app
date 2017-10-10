@@ -23,6 +23,9 @@
 	E_btnpost.addEventListener('tap', function(e) {
 		if(('' + E_btnpost.classList).indexOf('btn-post-disabled') >= 0) return;
 
+		document.body.querySelector('#pro_title').innerHTML = '';
+		E_main_protocol.innerHTML = '';
+
 		E_protocol.classList.remove('mui-hidden');
 		E_main.classList.add('filter-blur');
 		JT.fromTo('.protocol', AniDec, {
@@ -35,6 +38,7 @@
 		});
 
 		function AniEnd() {
+			i = 0;
 			getProtocol();
 		}
 	})
@@ -76,6 +80,7 @@
 	document.body.querySelector('.no-aggre').addEventListener('tap', HidePro);
 
 	function HidePro(callback) {
+		console.log(typeof callback)
 		E_main.classList.remove('filter-blur');
 		JT.fromTo('.protocol', AniDec, {
 			opacity: 1,
@@ -88,7 +93,7 @@
 
 		function AniEnd() {
 			E_protocol.classList.add('mui-hidden');
-			if(callback) callback();
+			if(typeof callback == 'function') callback();
 		}
 	}
 
@@ -131,14 +136,14 @@
 			var btns = ['取消', '好'];
 			var _phoneNO = document.body.querySelector('.lbl_phone').innerHTML + ' ' + E_inputPhone.value;
 			NConfirm('确认手机号码', '我们将发送验证码短信到这个号码:\n' + _phoneNO, btns, function(idx) {
-				if(idx == 1){
+				if(idx == 1) {
 					_wait = OpenWait('请稍候...');
-					setTimeout(function(e){
+					setTimeout(function(e) {
 						_wait.close();
 						clicked('/CarlosYin/code/home/index.html', false, false, null, 'none');
-					},1500);
+					}, 1500);
 				}
-				
+
 			})
 		}, 1500);
 	})

@@ -2,7 +2,12 @@
 	document.addEventListener('plusready', function() {
 		//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
 		init();
+		
+		
+		
 	});
+	
+	
 
 	//用户国际化语言设置，目前采取的是读取文件后回调，以后还需要想到更好的解决方案
 	w.GlobalizotionReload = function() {

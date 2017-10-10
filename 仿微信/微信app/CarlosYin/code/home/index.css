@@ -1,0 +1,16 @@
+.mui-badge{
+	background-color: #ff3b30;
+	color: #FFFFFF;
+}
+
+.mui-bar-tab{
+	padding-top:0;
+	height: 50px;
+}
+
+.mui-bar-tab .mui-tab-item.mui-active{
+	color: #1aad19;
+}
+.mui-bar-tab .mui-tab-item{
+	color: #7a7e83;
+}

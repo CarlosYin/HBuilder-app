@@ -16,8 +16,8 @@
 	 * @param {JSON} data : 请求发送的数据仅在Post类型下有效
 	 * @param {Function} suc : 请求成功后的回调
 	 */
-	w.getSvr = function(url, type, data, suc) {
-		xhrCreate(url, type, data, suc);
+	w.getSvr = function(showloading,url, type, data, suc) {
+		xhrCreate(showloading,url, type, data, suc);
 	}
 
 	var _wait;
