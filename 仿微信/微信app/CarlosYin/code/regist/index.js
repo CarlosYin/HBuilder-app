@@ -20,9 +20,10 @@
 	var body_height = document.body.clientHeight;
 	var E_protocol = document.body.querySelector('.protocol');
 	var E_main = document.body.querySelector('#main');
+	
+	//注册按钮事件
 	E_btnpost.addEventListener('tap', function(e) {
 		if(('' + E_btnpost.classList).indexOf('btn-post-disabled') >= 0) return;
-
 		document.body.querySelector('#pro_title').innerHTML = '';
 		E_main_protocol.innerHTML = '';
 
@@ -62,6 +63,7 @@
 		}, 15);
 	}
 
+	//展示协议
 	function showProtocol() {
 		document.body.querySelector('#pro_title').innerHTML = '微信隐私保护指引';
 		for(var i = 1; i < 60; i++) {
@@ -79,8 +81,8 @@
 
 	document.body.querySelector('.no-aggre').addEventListener('tap', HidePro);
 
+	//隐藏协议页面
 	function HidePro(callback) {
-		console.log(typeof callback)
 		E_main.classList.remove('filter-blur');
 		JT.fromTo('.protocol', AniDec, {
 			opacity: 1,
@@ -97,13 +99,14 @@
 		}
 	}
 
+	//变更区域语言
 	document.body.querySelector('.changeArea').addEventListener('tap', function(e) {
 		clicked('/CarlosYin/code/login/area.html', false, false, null, 'slide-in-bottom');
 	})
 
+	//区域语言页面切换地区后的处理
 	document.addEventListener('changeArea', function(e) {
 		console.log('changeArea' + JSON.stringify(e.detail));
-
 		document.body.querySelector('.area').innerHTML = e.detail.area;
 		document.body.querySelector('.lbl_phone').innerHTML = e.detail.phone;
 
@@ -123,6 +126,8 @@
 		darkStyle();
 	})
 
+
+	//协议同意后的处理
 	document.body.querySelector('.aggre').addEventListener('tap', function(e) {
 		var _wait = null;
 

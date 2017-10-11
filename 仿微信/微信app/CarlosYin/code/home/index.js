@@ -10,7 +10,8 @@
 		onload();
 	});
 
-
+	
+	//双击未读消息
 	document.body.querySelector('.home-list').addEventListener('doubletap', function() {
 		var wv_index_list = plus.webview.getWebviewById('index_list.html');
 		var _data = {
@@ -23,10 +24,13 @@
 	var badge_index = 0;
 	var badge_faxian = 0;
 
+
+	//随机未读消息数量
 	badge_index = Math.floor(Math.random() * 60);
 	document.querySelector('.mui-title').innerHTML = "微信(" + badge_index + ")";;
 	document.querySelector('.icon-message').querySelector('.mui-badge').innerHTML = badge_index;
 
+	//随机未读朋友圈数量
 	badge_faxian = Math.floor(Math.random() * 25);
 	document.querySelector('.icon-faxian1').querySelector('.mui-badge').innerHTML = badge_faxian;
 
@@ -41,6 +45,8 @@
 		lightStyle();
 	}
 
+
+	//加载4个子页面
 	var subpages = ['index_list.html', 'index_contacts.html', 'index_find.html', 'index_me.html'];
 	var subpage_style = {
 		top: '60px',
@@ -92,6 +98,8 @@
 		//隐藏当前;
 		plus.webview.hide(activeTab);
 
+
+		//图标 和顶部按钮 的切换
 		if(icon.contains('icon-xiaoxi')) {
 			icon.remove('icon-xiaoxi');
 			icon.add('icon-message');
@@ -162,6 +170,8 @@
 
 	}
 
+
+	//顶部按钮
 	function showBtn(type, _title) {
 
 		var e_header = document.querySelector('header');
@@ -192,6 +202,7 @@
 				break;
 		}
 	}
+	
 	//自定义事件，模拟点击“首页选项卡”
 	document.addEventListener('gohome', function() {
 		var defaultTab = document.getElementById("defaultTab");

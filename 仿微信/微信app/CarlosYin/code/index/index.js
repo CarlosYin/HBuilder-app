@@ -22,19 +22,18 @@
 			PageSize: 12,
 			PageIndex: 1
 		}
-		//		getSvr(true, 'http://www.ruovo.com/Help/HelpAppealsList', 'Post', p_data, function(rlt) {
-		//			console.log(rlt);
-		//		})
 
+		//语言切换
 		document.querySelector('.choose-language').addEventListener('tap', function(e) {
 			clicked('/CarlosYin/code/set_language/index.html', false, false, null, 'slide-in-bottom');
 		})
 
+		//跳转登录
 		document.querySelector('.btn-login').addEventListener('tap', function(e) {
 			clicked('/CarlosYin/code/login/index.html', false, false, null, 'slide-in-bottom');
 		})
 		
-
+		//跳转注册
 		document.querySelector('.btn-regist').addEventListener('tap', function(e) {
 			clicked('/CarlosYin/code/regist/index.html', false, false, null, 'slide-in-bottom');
 		})

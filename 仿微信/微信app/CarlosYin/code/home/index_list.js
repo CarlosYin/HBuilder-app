@@ -122,11 +122,14 @@ var listData = [{
 		//		document.body.querySelector('.btn-regist').innerHTML = gloInfo.index.btnRegist;
 	}
 
+
+	//用户首页底部按钮双击的回调
 	document.addEventListener('HomeDoubleTap', function(event) {
-		console.log(event.detail.num)
 		mui('.mui-scroll-wrapper').scroll().scrollTo(0,0,200);
 	})
 
+
+	//渲染列表数据
 	function reanderList() {
 		var E_list = document.querySelector('.mui-table-view');
 		for(var i = 0; i < listData.length; i++) {

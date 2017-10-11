@@ -78,6 +78,7 @@
 	//动画持续时间
 	var AniDec = 0.3;
 
+	//搜索 选中的 交互效果
 	document.body.querySelector('#search').addEventListener('focus', function(e) {
 		darkStyle();
 		document.body.querySelector('.cover').classList.remove('mui-hidden');
@@ -115,6 +116,7 @@
 		}
 	})
 
+	//搜索失去焦点的 交互效果
 	document.body.querySelector('#search').addEventListener('blur', function(e) {
 		JT.to('.mui-content', AniDec, {
 			paddingTop: "65px",
@@ -178,6 +180,7 @@
 		}
 	});
 
+	//页面取消后的回调
 	w.tellHomepage = function() {
 		mui.fire(wv_loginindex, 'cancelArea');
 	}

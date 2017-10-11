@@ -20,6 +20,8 @@
 	var E_changeLogin = document.body.querySelector('.changeLogin');
 	var E_btnpost = document.body.querySelector('.btn-post');
 
+
+	//登录方式切换的 交互效果
 	E_changeLogin.addEventListener('tap', function(e) {
 		var moveWidth = -body_width;
 		var _changeLoginTxt = '';
@@ -57,6 +59,8 @@
 	})
 
 	var _wait;
+	
+	//登录按钮事件
 	E_btnpost.addEventListener('tap', function(e) {
 		if(('' + E_btnpost.classList).indexOf('btn-post-disabled') >= 0) return;
 
@@ -68,6 +72,8 @@
 
 	})
 
+
+	//顶部更多
 	document.body.querySelector('.more').addEventListener('tap', function(e) {
 		bts = [{
 			title: "找回密码"
@@ -81,18 +87,23 @@
 		}
 	})
 
+
+	//切换地区语言
 	document.body.querySelector('.changeArea').addEventListener('tap', function(e) {
 		clicked('/CarlosYin/code/login/area.html', false, false, null, 'slide-in-bottom');
 	})
 
-	document.addEventListener('changeArea', function(e) {
 
+	//地区语言切换后的处理
+	document.addEventListener('changeArea', function(e) {
 		document.body.querySelector('.area').innerHTML = e.detail.area;
 		document.body.querySelector('.lbl_phone').innerHTML = e.detail.phone;
 
 	})
 
 	var loginPhone = '';
+	
+	//登录按钮高亮与禁用的切换
 	document.body.querySelector('#phone').addEventListener('input', function(e) {
 		loginPhone = this.value;
 		if(loginPhone != '') {
@@ -103,6 +114,8 @@
 
 	var loginAcc = '';
 	var loginPwd = '';
+	
+	//登录按钮高亮与禁用的切换
 	document.body.querySelector('#acc').addEventListener('input', function(e) {
 		loginAcc = this.value;
 		if(loginAcc != '' && loginPwd != '') {
@@ -111,6 +124,7 @@
 			E_btnpost.classList.add('btn-post-disabled');
 	})
 
+	//登录按钮高亮与禁用的切换
 	document.body.querySelector('#pwd').addEventListener('input', function(e) {
 		loginPwd = this.value;
 		if(loginAcc != '' && loginPwd != '') {
@@ -119,6 +133,7 @@
 			E_btnpost.classList.add('btn-post-disabled');
 	})
 
+	//地区页面返回后顶部状态栏颜色切换
 	document.addEventListener('cancelArea', function(e) {
 		darkStyle();
 	})
