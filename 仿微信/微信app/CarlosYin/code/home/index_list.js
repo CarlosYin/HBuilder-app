@@ -123,7 +123,8 @@ var listData = [{
 	}
 
 	document.addEventListener('HomeDoubleTap', function(event) {
-		console.log(event.detail.num);
+		console.log(event.detail.num)
+		mui('.mui-scroll-wrapper').scroll().scrollTo(0,0,200);
 	})
 
 	function reanderList() {
@@ -150,5 +151,22 @@ var listData = [{
 		}
 
 	}
+	
+	
+	//列表项的选择
+	document.body.querySelector('.mui-table-view').addEventListener('tap', function(e) {
+		var ev = ev || window.event;
+		var target = ev.target || ev.srcElement;
+		var _classList, _idx;
+		while(target.classList) {
+			_classList = '' + target.classList;
+			_idx = _classList.indexOf('mui-table-view-cell');
+			if(_idx >= 0) {
+				console.log(target.getAttribute('lid'));
+				clicked('/CarlosYin/code/talk/talk_friend.html', false, false, null, 'none');
+			}
+			target = target.parentNode;
+		}
+	});
 
 })(window);

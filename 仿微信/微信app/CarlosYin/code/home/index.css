@@ -14,3 +14,13 @@
 .mui-bar-tab .mui-tab-item{
 	color: #7a7e83;
 }
+
+.mui-bar-tab .mui-tab-item .mui-icon~.mui-tab-label{
+	line-height: 15px;
+	padding-top: 3px;
+	font-size: 10px;
+}
+
+.mui-bar-tab .mui-tab-item{
+	vertical-align:bottom;
+}
