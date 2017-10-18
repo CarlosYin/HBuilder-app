@@ -1,8 +1,15 @@
 (function(w) {
-	//	document.addEventListener('plusready', function() {
-	//
-	//	});
-	//
+	//构建底部聊天输入控件
+	mui.init({
+		gestureConfig: {
+			longtap: true, //默认为false
+		}
+	});
+	var _TalkControl = new mui.TalkControl();
+	document.addEventListener('plusready', function() {
+
+	});
+
 	//用户国际化语言设置，目前采取的是读取文件后回调，以后还需要想到更好的解决方案
 	w.GlobalizotionReload = function() {
 		//		document.body.querySelector('.choose-language').innerHTML = gloInfo.index.language;
@@ -48,3 +55,69 @@
 	}
 
 })(window);
+
+// 播放音频文件
+function playAudio(li) {
+	if(!li || !li.entry) {
+		ouSet('无效的音频文件');
+		return;
+	}
+	console.log('播放音频文件：' + li.entry.name);
+	startPlay('_doc/audio/' + li.entry.name);
+}
+
+// 播放文件相关对象
+var p = null,
+	pt = null,
+	pp = null,
+	ps = null,
+	pi = null;
+// 开始播放
+function startPlay(url) {
+	p = plus.audio.createPlayer(url);
+	p.play(function() {
+		// 播放完成
+		stopPlay();
+	}, function(e) {
+		console.log('播放音频文件"' + url + '"失败：' + e.message);
+	});
+	// 获取总时长
+	var d = p.getDuration();
+//	if(!d) {
+//		pt.innerText = '00:00:00/' + timeToStr(d);
+//	}
+	pi = setInterval(function() {
+//		if(!d) { // 兼容无法及时获取总时长的情况
+//			d = p.getDuration();
+//		}
+//		var c = p.getPosition();
+//		if(!c) { // 兼容无法及时获取当前播放位置的情况
+//			return;
+//		}
+//		pt.innerText = timeToStr(c) + '/' + timeToStr(d);
+//		var pct = Math.round(L * c / d);
+//		if(pct < 8) {
+//			pct = 8;
+//		}
+//		ps.style.width = pct + 'px';
+	}, 1000);
+}
+// 停止播放
+function stopPlay() {
+	clearInterval(pi);
+	pi = null;
+	setTimeout(resetPlay, 500);
+	// 操作播放对象
+	if(p) {
+		p.stop();
+		p = null;
+	}
+}
+
+			// 重置播放页面内容
+			function resetPlay() {
+				ep.style.display = 'none';
+				ps.style.width = '8px';
+				ps.style.webkitTransition = 'all 1s linear';
+				pt.innerText = '00:00:00/00:00:00';
+			}

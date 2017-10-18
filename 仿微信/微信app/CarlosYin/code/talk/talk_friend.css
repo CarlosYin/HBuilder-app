@@ -1,27 +1,23 @@
-.mui-bar-nav~.mui-content .mui-pull-top-pocket{
+.mui-bar-nav~.mui-content .mui-pull-top-pocket {
 	top: 65px;
 }
 
-.mui-pull-caption{
+.mui-pull-caption {
 	display: none;
 }
 
-.mui-pull-bottom-pocket{
+.mui-pull-bottom-pocket {
 	height: 0;
 }
-.mui-icon-pulldown{
+
+.mui-icon-pulldown {
 	font-size: 0px;
 }
 
-.user-input{
-	position: absolute;
-	bottom: 0;
-	height: 40px;
-	width: 100%;
-	background-color: red;
-	z-index: 99;
+.mui-content{
+	background-color: #ebebeb;
 }
 
-.mui-bar-nav~.mui-content{
+.mui-bar-nav~.mui-content {
 	padding-bottom: 40px;
 }
