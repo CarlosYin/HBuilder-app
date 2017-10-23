@@ -122,12 +122,10 @@ var listData = [{
 		//		document.body.querySelector('.btn-regist').innerHTML = gloInfo.index.btnRegist;
 	}
 
-
 	//用户首页底部按钮双击的回调
 	document.addEventListener('HomeDoubleTap', function(event) {
-		mui('.mui-scroll-wrapper').scroll().scrollTo(0,0,200);
+		mui('.mui-scroll-wrapper').scroll().scrollTo(0, 0, 200);
 	})
-
 
 	//渲染列表数据
 	function reanderList() {
@@ -155,8 +153,7 @@ var listData = [{
 		}
 
 	}
-	
-	
+
 	//列表项的选择
 	document.body.querySelector('.mui-table-view').addEventListener('tap', function(e) {
 		var ev = ev || window.event;
@@ -166,10 +163,22 @@ var listData = [{
 			_classList = '' + target.classList;
 			_idx = _classList.indexOf('mui-table-view-cell');
 			if(_idx >= 0) {
-				console.log(target.getAttribute('lid'));
-				
-				plus.storage.setItem('tu_name',target.getAttribute('lname'));
-				clicked('/CarlosYin/code/talk/talk_friend.html', false, false, null, 'slide-in-right');
+				var _type = target.getAttribute('ltype');
+				_type = parseInt(_type);
+				console.log(_type);
+				switch(_type) {
+					case 0:
+					case 1:
+						plus.storage.setItem('tu_name', target.getAttribute('lname'));
+						clicked('/CarlosYin/code/talk/talk_friend.html', false, false, null, 'slide-in-right');
+						break;
+
+					case 2:
+						clicked('/CarlosYin/code/news/index.html', false, false, null, 'slide-in-right');
+						break;
+
+				}
+
 			}
 			target = target.parentNode;
 		}
