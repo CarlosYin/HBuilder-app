@@ -17,23 +17,52 @@
 			var self = this;
 			var _footer = document.createElement('footer');
 			_footer.classList = "ub ub-pc ub-ac talk-control";
-
+			self.el.type = 0;
 			var _voice = document.createElement('div');
 			_voice.classList = "ub ub-img voice";
 			_voice.addEventListener($.EVENT_CLICK, function(e) {
-				self.el.input.remove();
-				self.el.face.remove();
-				self.el.more.remove();
-				self.el.footer.append(self.el.voicepanel);
-				self.el.footer.append(self.el.face);
-				self.el.footer.append(self.el.more);
+				if(self.el.type == 0) {
+					self.el.input.remove();
+					self.el.face.remove();
+					self.el.more.remove();
+					self.el.footer.append(self.el.voicepanel);
+					self.el.footer.append(self.el.face);
+					self.el.footer.append(self.el.more);
+					self.el.type = 1;
+				}else{
+					self.el.voicepanel.remove();
+					self.el.face.remove();
+					self.el.more.remove();
+					self.el.footer.append(self.el.input);
+					self.el.footer.append(self.el.face);
+					self.el.footer.append(self.el.more);
+					self.el.type  = 0;
+				}
 			})
 			_footer.appendChild(_voice);
 			self.el.voice = _voice;
 
 			var _input = document.createElement('div');
 			_input.classList = "ub ub-f1";
-			_input.innerHTML = "<input />";
+
+			var _input_form = document.createElement('form');
+			_input_form.classList = "ub ub-f1";
+			_input_form.setAttribute('action', 'javascript:sendMsg();');
+
+			var _input_i = document.createElement('input');
+			_input_i.classList = "ub";
+			_input_i.id = 'sendMsg';
+			_input_i.setAttribute('type', 'text');
+			_input_i.addEventListener("keyup", function(e) {
+				var keyword = this.value; //13
+				if(e.keyCode == 13) {
+					self.sendMsg(keyword);
+					this.value = '';
+				}
+
+			}, false);
+			_input_form.appendChild(_input_i);
+			_input.appendChild(_input_form);
 			_footer.appendChild(_input);
 			self.el.input = _input;
 
@@ -54,8 +83,6 @@
 			_btn_voice.addEventListener($.EVENT_END, function(e) {
 				console.log('EVENT_END' + e.pageX + e.pageY);
 				self.voice.endTime = new Date();
-				console.log(parseInt(self.voice.endTime - self.voice.beginTime) / 1000);
-
 				self.voice.record.stopRecord();
 
 			})
@@ -108,6 +135,22 @@
 
 		showTape: function() {
 
+		},
+
+		sendMsg: function(Msg) {
+			if(Msg == '') return;
+			var eul = document.querySelector('.mui-table-view');
+			var li = document.createElement('li');
+			li.classList = "ub my text";
+			var _html = '';
+			_html += '<span class="ub ub-f1 ub-pe text-panel">';
+			_html += '	<span class="ub text">' + Msg + '</span>';
+			_html += '</span>';
+			_html += '<span class="ub ub-img tx" style="background-image:url(../../Resources/home/tx/0.jpg)"></span>';
+			li.innerHTML = _html;
+			eul.appendChild(li);
+			mui('.mui-scroll-wrapper').scroll().refresh();
+			mui('.mui-scroll-wrapper').scroll().scrollToBottom(100);
 		},
 
 		//更多界面的显示/隐藏
@@ -168,8 +211,24 @@
 	var TalkAudio = $.TalkAudio = $.Class.extend({
 		init: function() {
 			var self = this;
+			self.createDom();
+
 			self.gentry = null;
 			self.er = document.querySelector('#record');
+
+			self.record = {};
+			self.docUrl = null;
+			self.record.r = null;
+			self.record.t = null;
+			self.record.ri = null;
+			self.record.rt = null;
+			self.record.er = document.querySelector('#record');
+			self.EUl = document.querySelector('.mui-table-view');
+			self.record.r = plus.audio.getRecorder();
+
+			self.audio = {};
+			self.audio.p = null;
+			self.audio.pi = null;
 
 			plus.io.resolveLocalFileSystemURL('_doc/', function(entry) {
 				entry.getDirectory('audio', {
@@ -185,23 +244,29 @@
 
 			self.createDom();
 		},
-		createDom: function() {
 
+		createDom: function() {
+			var E_div = document.createElement('div');
+			E_div.classList = 'rp';
+			E_div.id = 'record';
+			var _html = '';
+			_html += '<div class="ub ub-pc ub-ac ub-fh ub-fv">';
+			_html += '	<div class="ub ub-ver ub-ac record-panel">';
+			_html += '		<div class="ub ub-f1 ub-pc ub-ac">';
+			_html += '			<div class="ub ub-img img-voice"></div>';
+			_html += '			<div class="ub voice-lev lev1"></div>';
+			_html += '		</div>';
+			_html += '		<div class="ub r-text">手指上滑，取消发送</div>';
+			_html += '	</div>';
+			_html += '</div>';
+			E_div.innerHTML = _html;
+			document.querySelector('.mui-content').appendChild(E_div);
 		},
+
 		startRecord: function() {
 			var self = this;
-			self.record = {};
-			self.docUrl = null;
-			self.record.r = null;
-			self.record.t = null;
-			self.record.ri = null;
-			self.record.rt = null;
-			self.record.er = document.querySelector('#record');
-			self.record.rt = document.querySelector('.voice-lev');
-			self.EUl = document.querySelector('.mui-table-view');
-			self.record.r = plus.audio.getRecorder();
 			if(self.record.r == null) {
-				return;
+				self.record.r = plus.audio.getRecorder();
 			}
 			self.record.r.record({
 				filename: '_doc/audio/'
@@ -217,6 +282,7 @@
 			});
 			self.record.er.style.display = 'block';
 			self.record.t = 0;
+			self.record.rt = document.querySelector('.voice-lev');
 			self.record.ri = setInterval(function() {
 				self.record.t++;
 				var _levnum = (self.record.t % 4) + 1;
@@ -242,33 +308,74 @@
 		//添加录音到界面
 		showRecord: function(entry) {
 			var self = this;
-			console.log('showRecord:' + entry);
 
 			var li = document.createElement('li');
-			li.className = 'ditem';
-			li.innerHTML = '<span class="iplay"><font class="aname"></font><br/><font class="ainf"></font></span>';
-			li.setAttribute('onclick', 'playAudio(this)');
-//			hl.insertBefore(li, le.nextSibling);
-			li.querySelector('.aname').innerText = entry.name;
-			li.querySelector('.ainf').innerText = '...';
+			li.classList = 'ub my audio';
+
 			li.entry = entry;
-			self.updateInformation(li);
+
 			// 设置空项不可见
 			self.EUl.appendChild(li);
+			var _url = '_doc/audio/' + entry.name;
+			self.audio.p = plus.audio.createPlayer(_url);
+
+			var _time = Math.ceil(self.audio.p.getDuration());
+			var _width = (_time / 60) * 70;
+			if(_width < 30) _width = 30;
+			li.innerHTML = '<span class="ub ub-f1 ub-pe audio-panel"><span class="ub ub-ac ainf"></span><span class="ub audio" style="width: ' + _width + '%"></span></span><span class="ub ub-img tx" style="background-image:url(../../Resources/home/tx/0.jpg)"></span>';
+
+			li.querySelector('.ainf').setAttribute('time', _time);
+			li.querySelector('.ainf').innerText = _time + "''";
+			//界面点击播放录音
+			li.addEventListener('tap', function(e) {
+				if(!this || !this.entry) {
+					alert('不存在播放对象!');
+					return;
+				}
+
+				self.startPaly(li, '_doc/audio/' + this.entry.name);
+			})
+
 		},
 
-		updateInformation: function(li) {
-			if(!li || !li.entry) {
-				return;
-			}
-			var entry = li.entry;
-			entry.getMetadata(function(metadata) {
-				li.querySelector('.ainf').innerText = dateToStr(metadata.modificationTime);
+		//播放录音的实现
+		startPaly: function(li, url) {
+			var self = this;
+			self.stopPlay(li);
+
+			self.audio.p = plus.audio.createPlayer(url);
+			self.audio.p.play(function() {
+				// 播放完成
+				self.stopPlay(li);
 			}, function(e) {
-				outLine('获取文件"' + entry.name + '"信息失败：' + e.message);
+				console.log('播放音频文件"' + url + '"失败：' + e.message);
 			});
+			// 获取总时长
+			var d = self.audio.p.getDuration();
+			var E_ainf = li.querySelector('.ainf');
+			var _time = E_ainf.getAttribute('time');
+			self.audio.pi = setInterval(function() {
+				_time--;
+				E_ainf.innerText = _time + "''";
+			}, 1000);
+		},
+		stopPlay: function(li) {
+			var self = this;
+			if(self.audio.p) {
+				clearInterval(self.audio.pi);
+				self.audio.pi = null;
+				self.audio.p.stop();
+				self.audio.p = null;
+				setTimeout(resetPlay, 500);
+			}
+			var _li = li;
+
+			function resetPlay() {
+				var E_ainf = li.querySelector('.ainf');
+				var _time = E_ainf.getAttribute('time');
+				E_ainf.innerText = _time + "''";
+
+			}
 		}
-
 	});
-
 })(mui, window, document);

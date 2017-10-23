@@ -100,3 +100,121 @@
 	color: #e3e3e3;
 	margin-bottom: 10px;
 }
+
+.tx {
+	width: 40px;
+	height: 40px;
+}
+
+.my .tx {
+	margin-left: 10px;
+}
+
+.my .audio,
+.my .text {
+	background-color: #a0e75a;
+	border: 1px solid #6fb44e;
+	border-radius: 5px;
+}
+
+.my .audio::after,
+.my .text::after {
+	width: 0;
+	position: absolute;
+	right: -6px;
+	top: 12px;
+	height: 0;
+	content: '';
+	border-top: 7px solid transparent;
+	border-left: 6px solid #6fb44e;
+	border-bottom: 7px solid transparent;
+}
+
+.my .ainf {
+	color: #999999;
+	margin-right: 10px;
+}
+
+.my .audio-panel::after,
+.my .text-panel::after {
+	width: 0;
+	position: absolute;
+	right: -4px;
+	top: 15px;
+	height: 0;
+	content: '';
+	border-top: 5px solid transparent;
+	border-left: 5px solid #a0e75a;
+	border-bottom: 5px solid transparent;
+}
+
+.my .audio-panel:hover {
+	opacity: 0.6;
+}
+
+.to .tx {
+	margin-right: 10px;
+}
+
+.to .audio,
+.to .text {
+	background-color: #FFFFFF;
+	border: 1px solid #cccccc;
+	border-radius: 5px;
+}
+
+.to .audio::after,
+.to .text::after {
+	width: 0;
+	position: absolute;
+	left: -6px;
+	top: 12px;
+	height: 0;
+	content: '';
+	border-top: 7px solid transparent;
+	border-right: 6px solid #cccccc;
+	border-bottom: 7px solid transparent;
+}
+
+.to .ainf {
+	color: #999999;
+	margin-left: 10px;
+}
+
+.to .audio-panel::after,
+.to .text-panel::after {
+	width: 0;
+	position: absolute;
+	left: -4px;
+	top: 15px;
+	height: 0;
+	content: '';
+	border-top: 5px solid transparent;
+	border-right: 5px solid #FFFFFF;
+	border-bottom: 5px solid transparent;
+}
+
+.to .text,
+.my .text {
+	padding: 10px;
+	max-width: 80%;
+	text-align: justify;
+}
+
+.mui-table-view li {
+	margin: 10px;
+}
+
+.mui-table-view {
+	background-color: rgba(0, 0, 0, 0);
+}
+
+.mui-table-view:before,
+.mui-table-view:after {
+	height: 0;
+}
+input[type=color], input[type=date], input[type=datetime-local], input[type=datetime], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week], select, textarea{
+	height: 30px;
+	margin-bottom:0;
+	padding: 10px 5px;
+}

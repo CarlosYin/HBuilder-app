@@ -1,7 +1,7 @@
 //type 0 普通好友聊天 1群聊 2新闻 3公众号 4系统消息 5微信支付
 var listData = [{
 	id: 7,
-	name: '亲爱的徒儿',
+	name: '仙人掌',
 	des: '7878 一天天的忙得要死',
 	img: '../../Resources/home/tx/12.jpg',
 	time: '上午10:20',
@@ -137,6 +137,7 @@ var listData = [{
 			E_li.classList = "mui-table-view-cell mui-media";
 			E_li.setAttribute('ltype', listData[i].type);
 			E_li.setAttribute('lid', listData[i].id);
+			E_li.setAttribute('lname', listData[i].name);
 			var _html = '';
 			_html += '<a href="javascript:;">';
 			_html += '	<img class="mui-media-object mui-pull-left" src="' + listData[i].img + '">';
@@ -166,7 +167,9 @@ var listData = [{
 			_idx = _classList.indexOf('mui-table-view-cell');
 			if(_idx >= 0) {
 				console.log(target.getAttribute('lid'));
-				clicked('/CarlosYin/code/talk/talk_friend.html', false, false, null, 'none');
+				
+				plus.storage.setItem('tu_name',target.getAttribute('lname'));
+				clicked('/CarlosYin/code/talk/talk_friend.html', false, false, null, 'slide-in-right');
 			}
 			target = target.parentNode;
 		}
