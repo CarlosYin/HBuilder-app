@@ -176,6 +176,10 @@ var listData = [{
 					case 2:
 						clicked('/CarlosYin/code/news/index.html', false, false, null, 'slide-in-right');
 						break;
+						
+						case 5:
+						clicked('/CarlosYin/code/wxpay/index.html', false, false, null, 'slide-in-right');
+						break;
 
 				}
 
