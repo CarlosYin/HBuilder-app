@@ -176,8 +176,12 @@ var listData = [{
 					case 2:
 						clicked('/CarlosYin/code/news/index.html', false, false, null, 'slide-in-right');
 						break;
-						
-						case 5:
+
+					case 3:
+						NAlert('提示', '微信公众号的展示开发中...', function(e) {});
+						break;
+
+					case 5:
 						clicked('/CarlosYin/code/wxpay/index.html', false, false, null, 'slide-in-right');
 						break;
 

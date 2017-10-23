@@ -43,7 +43,7 @@
 
 			var li = document.createElement('div');
 			li.classList = "mui-card";
-			
+
 			_html = '';
 			_html += '<div class="mui-card-header mui-card-media">';
 			_html += '	<div class="mui-media-body">转账过期退还通知<p>10月10日</p></div>';
@@ -51,7 +51,7 @@
 			_html += '<div class="mui-card-content">';
 			_html += '	<div class="ub ub-ver ub-pc ub-ac">';
 			_html += '		<p>退还金额:</p>';
-			_html += '		<p class="money">¥ 15.00</p>';
+			_html += '		<p class="money">¥ ' + Math.ceil(Math.random() * 3000) + '.00</p>';
 			_html += '	</div>';
 			_html += '</div>';
 			_html += '<div class="mui-card-content mui-foot" style="border-top: 1px dashed #c8c7cc;">';
